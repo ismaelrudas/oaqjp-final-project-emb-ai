@@ -15,8 +15,13 @@ def emotion_detector(text_to_analyze):
         joy_score = emotions["joy"]
         sadness_score = emotions["sadness"]
         dominant_emotion_name = max(emotions, key= emotions.get)
-    elif response.status_code == 500:
-        anger_score, disgust_score, fear_score, joy_score, sadness_score, dominant_emotion_name = None
+    elif response.status_code == 400:
+        anger_score = None
+        disgust_score = None
+        fear_score = None
+        joy_score = None
+        sadness_score = None
+        dominant_emotion_name = None
 
     # Retornar el formato solicitado
     return {
